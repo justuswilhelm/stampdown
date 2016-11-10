@@ -1,0 +1,25 @@
+machine:
+  environment:
+    DATABASE_URL: "postgres://ubuntu@localhost:5432/circle_test"
+    SECRET_KEY: 'CI'
+    DEBUG: 'test'
+  python:
+    version: 3.5.1
+
+dependencies:
+  pre:
+    - bower install
+
+test:
+  post:
+    - ./manage.py check
+    - ./manage.py collectstatic --no-input
+    - ./manage.py validate_templates
+    - script/test
+
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: {{ cookiecutter.heroku_name }}

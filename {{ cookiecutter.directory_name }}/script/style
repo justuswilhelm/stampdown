@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+FILES="{{ cookiecutter.directory_name }}"
+for folder in $FILES
+do
+    echo "Performing isort in $folder"
+    files=$(find $folder -name '*.py')
+    isort -r $files
+done

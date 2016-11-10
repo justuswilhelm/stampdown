@@ -1,0 +1,9 @@
+- extends "registration/base.haml"
+- block content
+  .row
+    .col-sm-6.col-sm-push-3.well
+      %h2.text-center
+        - block heading
+      %form.form{method: "POST"}
+        - csrf_token
+        - block form

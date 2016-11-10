@@ -1,0 +1,36 @@
+- load static
+- load i18n
+
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{
+        type: "button",
+        data-toggle: "collapse",
+        data-target: "#bs-example-navbar-collapse-1"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: "/"}
+        %img{src: "{% static 'logo.png' %}"}
+    .collapse.navbar-collapse#bs-example-navbar-collapse1
+      %ul.nav.navbar-nav.navbar-right
+        - if user.is_authenticated
+          %li
+            %a.btn.btn-default{
+              href: "{% url 'profile' %}?next=={ request.get_full_path }"}
+               = request.user
+          %li
+            %a.btn.btn-default.btn-margin-left{
+              href: "{% url 'logout' %}?next=={ request.get_full_path }"}
+              - trans "Logout"
+         - else
+          %li
+            %a.btn.btn-default.btn-margin-left{
+              href: "{% url 'signup' %}?next=={ request.get_full_path }"}
+              - trans "Signup"
+          %li
+            %a.btn.btn-default.btn-margin-left{
+              href: "{% url 'login' %}?next=={ request.get_full_path }"}
+              - trans "Login"

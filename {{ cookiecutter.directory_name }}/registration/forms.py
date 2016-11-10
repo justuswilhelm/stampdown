@@ -1,0 +1,1 @@
+"""Forms for registration app."""

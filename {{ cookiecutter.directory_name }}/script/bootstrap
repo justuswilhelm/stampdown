@@ -1,0 +1,19 @@
+#!/bin/bash
+ENV_FILE=".env"
+ENV_FILE_TEMPLATE=".env.template"
+
+if [ -z "$CI" ] && [ ! -f "$ENV_FILE" ]
+then
+    cp -v "$ENV_FILE_TEMPLATE" "$ENV_FILE"
+    echo "Make sure to edit $ENV_FILE and run $0 again"
+    exit 0
+fi
+
+if [ -z "$CI" ]
+then
+    dropdb "{{ cookiecutter.directory_name }}"
+    createdb "{{ cookiecutter.directory_name }}"
+fi
+
+foreman run ./manage.py migrate || ./manage.py migrate
+foreman run ./manage.py seeddb || ./manage.py seeddb

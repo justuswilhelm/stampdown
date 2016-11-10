@@ -1,0 +1,17 @@
+- extends "registration/form_base.haml"
+- load i18n
+- load bootstrap3
+
+- block heading
+  - trans "Login"
+
+- block form
+  - bootstrap_form form
+  - buttons
+    %button.btn.btn-success{type: "submit"}
+      - trans "Login"
+      %i.fa.fa-sign-in
+    %a.btn.btn-primary{href: "{% url 'password_reset' %}"}
+      - trans "Forgotten Password"
+      %i.fa.fa-question
+  - endbuttons
