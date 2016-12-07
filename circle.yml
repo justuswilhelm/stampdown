@@ -13,3 +13,4 @@ test:
         - ./manage.py test
         - script/style
         - npm install
+        - ./manage.py collectstatic --no-input
