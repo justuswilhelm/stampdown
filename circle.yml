@@ -8,3 +8,4 @@ test:
         - cd ..; cookiecutter django-template --no-input
         - cd ~/django_project; pip install -r requirements.txt && script/bootstrap
         - cd ~/django_project && script/test && ./manage.py test
+        - cd ~/django_project && script/style

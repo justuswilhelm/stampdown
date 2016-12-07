@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-FILES="{{ cookiecutter.directory_name }}"
+source script/FILES
 for folder in $FILES
 do
     echo "Performing isort in $folder"

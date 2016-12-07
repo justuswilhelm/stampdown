@@ -1,1 +1,1 @@
-"""Django Project."""
+"""{{ cookiecutter.project_name }} project."""

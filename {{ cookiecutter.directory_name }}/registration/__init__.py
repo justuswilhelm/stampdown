@@ -1,1 +1,1 @@
-"""Acount_override app."""
+"""Registration app."""

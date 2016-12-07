@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-FILES="{{ cookiecutter.directory_name }}"
+source script/FILES
 pep8 $FILES
 pydocstyle $FILES
 pyflakes $FILES
