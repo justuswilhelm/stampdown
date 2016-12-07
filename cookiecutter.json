@@ -2,7 +2,7 @@
     "project_name": "Django Project",
     "directory_name": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
     "description": "{{ cookiecutter.project_name }}",
-    "license": "UNLICENSED",
+    "license": "ISC",
     "heroku_name": "{{ cookiecutter.directory_name|replace('_', '-') }}",
     "author": "Justus Perlwitz",
     "email": "mail@justusperlwitz.com",
