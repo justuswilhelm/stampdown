@@ -14,7 +14,10 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **kwargs):
         """Handle command invocation."""
-        Site.objects.create(domain='localhost:8000', name='Django Project')
+        Site.objects.create(
+            domain='localhost:8000',
+            name='{{ cookiecutter.project_name }}',
+        )
         user = SuperUserFactory(username='justusperlwitz',
                                 email='justus@justus.justus',
                                 first_name='Justus',
