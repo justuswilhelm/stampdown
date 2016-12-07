@@ -12,7 +12,8 @@ DEBUG = 'DEBUG' in environ
 TESTING = len(argv) > 1 and argv[1] == 'test'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-ALLOWED_HOSTS = getenv('ALLOWED_HOSTS', '').split(',')
+if not DEBUG:
+    ALLOWED_HOSTS = getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = ('django.contrib.sites',
                   'django.contrib.auth',
