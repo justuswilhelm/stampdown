@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 ENV_FILE=".env"
 ENV_FILE_TEMPLATE=".env.template"
 
