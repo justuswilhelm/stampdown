@@ -15,26 +15,28 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 if not DEBUG:
     ALLOWED_HOSTS = getenv('ALLOWED_HOSTS', '').split(',')
 
-INSTALLED_APPS = ('django.contrib.sites',
-                  'django.contrib.auth',
-                  'django.contrib.admin',
+INSTALLED_APPS = (
+    'django.contrib.sites',
+    'django.contrib.auth',
+    'django.contrib.admin',
 
-                  'django.contrib.contenttypes',
-                  'django.contrib.sessions',
-                  'django.contrib.messages',
-                  'django.contrib.staticfiles',
-                  'django.contrib.humanize',
-                  'django.contrib.sitemaps',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.sitemaps',
 
-                  'bootstrap3',
-                  'django_nose',
-                  'django_extensions',
-                  'pipeline',
+    'bootstrap3',
+    'django_extensions',
+    'django_nose',
+    'pipeline',
 
-                  'registration',
-                  'dashboard',
-                  '{{ cookiecutter.directory_name }}',
-                  'landing')
+    'dashboard',
+    'landing',
+    'registration',
+    '{{ cookiecutter.directory_name }}',
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
@@ -45,7 +47,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.sites.middleware.CurrentSiteMiddleware')
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+)
 
 if TESTING:
     SITE_ID = 1
@@ -115,17 +118,23 @@ PIPELINE = {
     'PIPELINE_ENABLED': TESTING or not DEBUG,
     'STYLESHEETS': {
         'application': {
-            'source_filenames': ('bootstrap.less',
-                                 'font-awesome/less/font-awesome.less',
-                                 'landing.less',
-                                 'main.less'),
-            'output_filename': 'application.css'}},
+            'source_filenames': (
+                'bootstrap.less',
+                'font-awesome/less/font-awesome.less',
+                'landing.less',
+                'main.less',
+            ), 'output_filename': 'application.css'},
+    },
     'JAVASCRIPT': {
         'application': {
-            'source_filenames': ('jquery/dist/jquery.min.js',
-                                 'bootstrap/js/collapse.js'),
-            'output_filename': 'application.js'}},
-    'COMPILERS': ('pipeline.compilers.less.LessCompiler',)}
+            'source_filenames': (
+                'jquery/dist/jquery.min.js',
+                'bootstrap/js/collapse.js'
+            ), 'output_filename': 'application.js'},
+    },
+    'COMPILERS': (
+        'pipeline.compilers.less.LessCompiler',
+    )}
 
 # logging
 if TESTING:
