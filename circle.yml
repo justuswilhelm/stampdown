@@ -5,7 +5,11 @@ machine:
     DEBUG: 'test'
 test:
     override:
-        - cd ..; cookiecutter django-template --no-input
-        - cd ~/django_project; pip install -r requirements.txt && script/bootstrap
-        - cd ~/django_project && script/test && ./manage.py test
-        - cd ~/django_project && script/style
+        - cd .. && cookiecutter django-template --no-input
+        - cd .. && mv ~/django-template ~/_django-template && mv ~/django_project ~/django-template
+        - pip install -r requirements.txt
+        - script/bootstrap
+        - script/test
+        - ./manage.py test
+        - script/style
+        - npm install
