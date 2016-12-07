@@ -3,6 +3,9 @@ machine:
     DATABASE_URL: "postgres://ubuntu@localhost:5432/circle_test"
     SECRET_KEY: 'CI'
     DEBUG: 'test'
+dependencies:
+    post:
+        - npm install -g less yuglify
 test:
     override:
         - cd .. && cookiecutter django-template --no-input
