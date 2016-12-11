@@ -1,16 +1,14 @@
 - extends "landing/base.haml"
 - load i18n
+
 - block title
   - trans "FAQ"
+
 - block content
   %h1
     - trans "Frequently Asked Questions (FAQ)"
   %h2
-    - trans "1. What is Django Project?"
+    - trans "1. What is {{ cookiecutter.project_name }}?"
   %p
     - blocktrans
-      Sustainable four dollar toast venmo next level, biodiesel roof party
-      tumblr shabby chic farm-to-table PBR&B taxidermy meh hoodie hexagon.
-      Direct trade plaid quinoa, squid raw denim umami meh food truck vice
-      pitchfork pok pok gochujang affogato butcher. Pop-up roof party ugh
-      ethical gluten-free pickled
+      {% lorem %}
