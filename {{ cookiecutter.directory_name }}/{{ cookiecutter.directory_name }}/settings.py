@@ -92,7 +92,7 @@ if TESTING:
 elif DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-DEFAULT_FROM_EMAIL = 'mail@example.com'
+DEFAULT_FROM_EMAIL = '{{ cookiecutter.email }}'
 
 # i18n
 TIME_ZONE = 'UTC'
