@@ -1,19 +1,49 @@
-machine:
-  environment:
-    DATABASE_URL: "postgres://ubuntu@localhost:5432/circle_test"
-    SECRET_KEY: 'CI'
-    DEBUG: 'test'
-dependencies:
-    post:
-        - npm install -g less yuglify
-test:
-    override:
-        - cd .. && cookiecutter django-template --no-input
-        - cd .. && mv ~/django-template ~/_django-template && mv ~/django_project ~/django-template
-        - pip install -r requirements.txt
-        - script/bootstrap
-        - script/test
-        - ./manage.py test
-        - script/style
-        - npm install
-        - ./manage.py collectstatic --no-input
+version: 2
+jobs:
+  build:
+    working_directory: ~/project
+    docker:
+      - image: python:3.6
+        environment:
+          DATABASE_URL: postgres://ubuntu:password@localhost:5432/circle_test
+          DJANGO_SETTINGS_MODULE: project.settings.test
+      - image: redis
+      - image: postgres
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: password
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "requirements-test.txt" }}
+      - run:
+          name: Create junit test results folder
+          command: mkdir -p test-results/
+      - run:
+          name: Create test artifacts folder
+          command: mkdir -p test-artifacts/
+      - run:
+          name: Install pip packages
+          command: pip install -r requirements-test.txt
+      - save_cache:
+          key: cache-{{ checksum "requirements-test.txt" }}
+          paths:
+            - ~/.cache/pip
+      - run:
+          name: Run flake8
+          command: flake8
+      - run:
+          name: Run mypy
+          command: mypy .
+      - run:
+          name: Run pytest
+          command: pytest --cov --junit-xml=test-results/pytest.xml
+      - run:
+          name: Export coverage results
+          command: coverage html -d test-artifacts/coverage
+      - store_artifacts:
+          path: test-artifacts/
+          destination: test-artifacts
+      - store_test_results:
+          path: test-results/

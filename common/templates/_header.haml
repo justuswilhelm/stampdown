@@ -1,0 +1,19 @@
+- load static
+- load i18n
+
+%nav
+  %ul
+    - if user.is_authenticated
+      %li
+        %a{href: "{% url 'account:user_detail' %}"}
+           = request.user
+      %li
+        %a{href: "{% url 'account:logout' %}"}
+          - trans "Logout"
+     - else
+      %li
+        %a{href: "{% url 'account:signup' %}"}
+          - trans "Signup"
+      %li
+        %a{href: "{% url 'account:login' %}"}
+          - trans "Login"

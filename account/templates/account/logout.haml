@@ -1,0 +1,15 @@
+- extends "account/base.haml"
+
+- load i18n
+- load bootstrap3
+
+- block content
+  %h2
+    - trans "Möchten Sie sich abmelden?"
+  %form{method: "POST"}
+    - csrf_token
+    - buttons
+      %a{href: "/"}
+        - trans "Abbrechen"
+      %button{type: "submit"}
+        - trans "Abmelden"
