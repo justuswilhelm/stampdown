@@ -29,6 +29,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'bootstrap3',
     'django_extensions',
+    'tz_detect',
 )
 
 FIRST_PARTY_APPS = (
@@ -42,7 +43,7 @@ FIRST_PARTY_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + FIRST_PARTY_APPS
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'tz_detect.middleware.TimezoneMiddleware',
 )
 
 # URL
@@ -111,10 +113,8 @@ LOGOUT_REDIRECT_URL = "landing:landing"
 DEFAULT_FROM_EMAIL = 'mail@justusperlwitz.com'
 
 # i18n
-TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
 
 # static
 STATICFILES_FINDERS = (
@@ -144,3 +144,12 @@ LOGGING = {
         },
     }
 }
+
+# timezone
+TIME_ZONE = 'UTC'
+USE_TZ = True
+TZ_DETECT_COUNTRIES = (
+    'DE',
+    'JP',
+    'US',
+)
