@@ -1,0 +1,8 @@
+- extends "account/base.haml"
+
+- load i18n
+
+- block content
+  %h3.text-center
+    %a{href: "{% url 'account:password_change' %}"}
+      - trans "Change Password"

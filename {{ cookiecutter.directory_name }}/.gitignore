@@ -1,6 +1,0 @@
-.env
-__pycache__/
-bower_components/
-node_modules/
-src/
-staticfiles/

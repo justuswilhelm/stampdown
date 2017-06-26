@@ -1,6 +1,6 @@
-bower_components/
-node_modules/
-staticfiles/
-.env
-*.pyc
-src/
+# Testing
+.cache
+.coverage
+
+# Python
+__pycache__/

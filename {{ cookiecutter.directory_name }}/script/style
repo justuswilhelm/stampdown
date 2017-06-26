@@ -1,9 +1,0 @@
-#!/bin/bash
-set -e
-source script/FILES
-for folder in $FILES
-do
-    echo "Performing isort in $folder"
-    files=$(find $folder -name '*.py')
-    isort -r $files
-done
