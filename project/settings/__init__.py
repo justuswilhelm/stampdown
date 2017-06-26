@@ -125,3 +125,22 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            "level": 'WARNING',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': (
+                'console',
+            ),
+        },
+    }
+}
