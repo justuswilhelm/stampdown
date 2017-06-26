@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 from .models import UserProfile
 
@@ -18,6 +19,27 @@ class UserAdmin(auth_admin.UserAdmin):
     search_fields = 'email',
     ordering = 'email',
     filter_horizontal = ()
+    fieldsets = (
+        (
+            "",
+            {
+                'fields': (
+                    'email',
+                    'password',
+                ),
+            },
+        ),
+        (
+            _('Permissions'),
+            {
+                'fields': (
+                    'is_active',
+                    'is_staff',
+                    'is_superuser',
+                ),
+            },
+        ),
+    )
 
 
 @admin.register(UserProfile)

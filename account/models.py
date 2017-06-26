@@ -68,7 +68,7 @@ class EmailUser(auth_models.AbstractBaseUser):
     )
     date_joined = models.DateTimeField(
         verbose_name=_('Date Joined'),
-        auto_now_add=True
+        auto_now_add=True,
     )
 
     objects = UserManager()
