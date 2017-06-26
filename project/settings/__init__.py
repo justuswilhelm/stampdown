@@ -37,6 +37,7 @@ FIRST_PARTY_APPS = (
     "dashboard",
     "landing",
     "project",
+    "timestamp",
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + FIRST_PARTY_APPS
