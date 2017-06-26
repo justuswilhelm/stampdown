@@ -1,4 +1,5 @@
 - load static
+- load tz_detect
 
 !!! 5
 %html
@@ -10,6 +11,7 @@
       = request.site.name
       - block title
   %body
+    - tz_detect
     - include "_header.haml"
     - block content_base
     - include "_footer.haml"

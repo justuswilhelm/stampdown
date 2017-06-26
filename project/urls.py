@@ -13,6 +13,7 @@ urlpatterns = (
     url(r"^account/", include("account.urls", namespace="account")),
     url(r"^admin/", admin.site.urls),
     url(r"^dashboard/", include("dashboard.urls", namespace="dashboard")),
+    url(r'^tz_detect/', include('tz_detect.urls')),
 )
 
 admin.site.site_header = _("Admin")
