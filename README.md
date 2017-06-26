@@ -29,6 +29,6 @@ heroku create "project"
 heroku config:set SECRET_KEY=(openssl rand 12 -base64)
 heroku config:set ALLOWED_HOSTS=project.herokuapp.com
 heroku run --no-tty ./manage.py migrate
-heroku run --no-tty ./manage.py createsuperuser
-printf "Site.objects.create(name="project", domain="project.herokuapp.com")\n" | heroku run --no-tty ./manage.py shell_plus --ipython
+heroku run ./manage.py createsuperuser
+printf 'Site.objects.create(name="project", domain="www.stampdown.com")\n' | heroku run --no-tty ./manage.py shell_plus --ipython
 ```
