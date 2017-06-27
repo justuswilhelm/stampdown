@@ -1,8 +1,9 @@
-- extends "account/base.haml"
+- extends "base.haml"
 
 - block content
   %h2
     - block heading
   %form{method: "POST"}
     - csrf_token
-    - block form
+    = form
+    - block buttons
