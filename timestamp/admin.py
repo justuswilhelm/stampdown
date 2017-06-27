@@ -15,3 +15,11 @@ class TimestampAdmin(admin.ModelAdmin):
         form.base_fields['value'].initial = now()
         form.base_fields['user'].initial = request.user
         return form
+
+    list_display = (
+        'value',
+        'user',
+    )
+    list_filter = (
+        'user',
+    )
