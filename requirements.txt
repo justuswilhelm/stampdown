@@ -1,6 +1,5 @@
 Django==1.11.1
 dj-database-url==0.4.2
-django-bootstrap3==8.2.3
 django-extensions==1.7.9
 django-hamlpy==1.1
 django-nose==1.4.4
