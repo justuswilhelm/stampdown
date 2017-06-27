@@ -13,3 +13,10 @@ class Timestamp(common_models.UserModel):
     comment = models.TextField(
         verbose_name=_("comment"),
     )
+
+    class Meta:
+        """Model Meta."""
+
+        ordering = (
+            '-value',
+        )
