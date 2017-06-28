@@ -2,5 +2,13 @@
 - load i18n
 
 - block content
-  %h1
+  %h1.title
     - trans "Dashboard"
+  .tile.is-ancestor
+    - for category in categories
+      .tile.box.is-child
+        %form{method: "POST", action: "{% url 'timestamp:timestamp_create' %}"}
+          - csrf_token
+          %input{type: "hidden", value: "#{category.pk}", name: "category"}
+          %button
+            = category.name

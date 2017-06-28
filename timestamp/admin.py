@@ -2,7 +2,19 @@
 from django.contrib import admin
 from django.utils.timezone import now
 
-from .models import Timestamp
+from .models import (
+    Category,
+    Timestamp,
+)
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    """ModelAdmin for Category."""
+
+    list_display = (
+        'name',
+    )
 
 
 @admin.register(Timestamp)

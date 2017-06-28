@@ -10,7 +10,7 @@ from .models import Timestamp
 class TimestampCreateView(LoginRequiredMixin, CreateView):
     """Timestamp CreateView."""
 
-    fields = 'comment',
+    fields = 'comment', 'category'
     model = Timestamp
     success_url = reverse_lazy('dashboard:dashboard')
     template_name = "timestamp/timestamp_form.haml"

@@ -1,19 +1,21 @@
 - load static
 - load i18n
 
-%nav
-  %ul
+%nav.nav
+  .nav-left
+    %a.nav-item{href: "{% url 'landing:landing' %}"}
+      = request.site.name
+  .nav-right
     - if user.is_authenticated
-      %li
-        %a{href: "{% url 'account:user_detail' %}"}
-           = request.user
-      %li
-        %a{href: "{% url 'account:logout' %}"}
-          - trans "Logout"
+      %a.nav-item{href: "{% url 'account:user_detail' %}"}
+         = request.user
+      %a.nav-item{href: "{% url 'account:logout' %}"}
+        - trans "Logout"
+      - if user.is_staff
+        %a.nav-item{href: "{% url 'admin:index' %}"}
+          - trans "Admin"
      - else
-      %li
-        %a{href: "{% url 'account:signup' %}"}
-          - trans "Signup"
-      %li
-        %a{href: "{% url 'account:login' %}"}
-          - trans "Login"
+      %a.nav-item{href: "{% url 'account:signup' %}"}
+        - trans "Signup"
+      %a.nav-item{href: "{% url 'account:login' %}"}
+        - trans "Login"

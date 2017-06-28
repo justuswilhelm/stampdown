@@ -29,6 +29,10 @@ class StringNameModel(Model):
 
     name = CharField(max_length=255)
 
+    def __str__(self):
+        """Magic string method."""
+        return self.name
+
     class Meta:
         """Abstract model."""
 
