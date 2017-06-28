@@ -1,8 +1,10 @@
 """Landing App views."""
 from django.views.generic.base import TemplateView
 
+from common.mixins import AnonymousRequiredMixin
 
-class LandingView(TemplateView):
+
+class LandingView(AnonymousRequiredMixin, TemplateView):
     """What an anonymous user will see."""
 
     template_name = 'landing/landing.haml'

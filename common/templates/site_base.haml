@@ -19,6 +19,7 @@
       - block title
   %body
     - tz_detect
-    - include "_header.haml"
-    - block content_base
-    - include "_footer.haml"
+    .container
+      - include "_header.haml"
+      - block content_base
+      - include "_footer.haml"

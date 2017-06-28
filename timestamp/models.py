@@ -5,6 +5,10 @@ from django.utils.translation import gettext_lazy as _
 from common import models as common_models
 
 
+class Category(common_models.StringNameModel):
+    """Category for time stamps."""
+
+
 class Timestamp(common_models.UserModel):
     """Timestamp with comment and other goodies."""
 
@@ -12,6 +16,10 @@ class Timestamp(common_models.UserModel):
         verbose_name=_("value"),)
     comment = models.TextField(
         verbose_name=_("comment"),
+    )
+    category = models.ForeignKey(
+        Category,
+        null=True,
     )
 
     class Meta:
