@@ -1,1 +1,1 @@
-"""Project management commands."""
+"""Stampdown management commands."""

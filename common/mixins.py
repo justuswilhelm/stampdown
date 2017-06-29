@@ -1,4 +1,4 @@
-"""View Mixins and Base Classes for Project."""
+"""View Mixins and Base Classes for Stampdown."""
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
 

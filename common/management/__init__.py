@@ -1,1 +1,1 @@
-"""Project management."""
+"""Stampdown management."""

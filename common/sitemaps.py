@@ -1,4 +1,4 @@
-"""Sitemaps for project."""
+"""Sitemaps for Stampdown."""
 from django.contrib import sitemaps
 from django.urls import reverse
 

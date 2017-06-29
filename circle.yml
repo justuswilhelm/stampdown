@@ -1,12 +1,12 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/project
+    working_directory: ~/stampdown
     docker:
       - image: python:3.6
         environment:
           DATABASE_URL: postgres://ubuntu:password@localhost:5432/circle_test
-          DJANGO_SETTINGS_MODULE: project.settings.test
+          DJANGO_SETTINGS_MODULE: stampdown.settings.test
       - image: redis
       - image: postgres
         environment:

@@ -36,7 +36,6 @@ FIRST_PARTY_APPS = (
     "common",
     "dashboard",
     "landing",
-    "project",
     "timestamp",
 )
 
@@ -56,10 +55,10 @@ MIDDLEWARE = (
 )
 
 # URL
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'stampdown.urls'
 
 # WSGI
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'stampdown.wsgi.application'
 
 # Tempates
 TEMPLATES = [

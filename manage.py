@@ -11,7 +11,7 @@ from dotenv import (
 
 if __name__ == "__main__":  # pragma: no cover
     load_dotenv(find_dotenv())
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "stampdown.settings")
 
     from django.core.management import execute_from_command_line
 

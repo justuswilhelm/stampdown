@@ -12,8 +12,8 @@ fi
 
 if [ -z "$CI" ]
 then
-    dropdb "project"
-    createdb "project"
+    dropdb "stampdown"
+    createdb "stampdown"
 fi
 
 foreman run ./manage.py migrate || ./manage.py migrate
