@@ -12,9 +12,9 @@ fi
 
 if [ -z "$CI" ]
 then
-    dropdb "stampdown"
+    dropdb "stampdown" || echo "db did not exist"
     createdb "stampdown"
 fi
 
-foreman run ./manage.py migrate || ./manage.py migrate
-foreman run ./manage.py seeddb || ./manage.py seeddb
+./manage.py migrate
+./manage.py seeddb

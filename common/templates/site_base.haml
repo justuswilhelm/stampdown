@@ -8,18 +8,11 @@
     %meta{charset: "utf-8"}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %meta{http-equiv: "x-ua-compatible", content: "ie=edge"}
-    %link{
-      rel: "stylesheet",
-      href: "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css",
-      integrity: "sha256-5MiG346KC5bVXrbDQQU0cjus8r2Yxh07eorYOPNUcmw=",
-      crossorigin: "anonymous"
-    }
     %title
       = request.site.name
       - block title
   %body
     - tz_detect
-    .container
-      - include "_header.haml"
-      - block content_base
-      - include "_footer.haml"
+    - include "_header.haml"
+    - block content_base
+    - include "_footer.haml"

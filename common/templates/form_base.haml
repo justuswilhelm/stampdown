@@ -3,10 +3,7 @@
 - block content
   %h2
     - block heading
-  .columns
-    %form{method: "POST"}
-      - csrf_token
-      .column
-        = form
-      .column
-        - block buttons
+  %form{method: "POST"}
+    - csrf_token
+    = form
+    - block buttons
