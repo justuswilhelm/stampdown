@@ -2,7 +2,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 
-from timestamp.models import Category
+from timestamp.models import (
+    Category,
+    Timestamp,
+)
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):
@@ -15,4 +18,5 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return {
             **super().get_context_data(**kwargs),
             'categories': Category.objects.all(),
+            'recent': Timestamp.objects.recent(),
         }

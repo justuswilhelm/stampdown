@@ -51,6 +51,7 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'tz_detect.middleware.TimezoneMiddleware',
 )
 
@@ -113,6 +114,20 @@ DEFAULT_FROM_EMAIL = 'mail@justusperlwitz.com'
 # i18n
 USE_I18N = True
 USE_L10N = True
+LANGUAGE_CODE = 'de-de'
+TIME_ZONE = 'Europe/Berlin'
+USE_TZ = True
+LANGUAGES = (
+    ('de-de', 'German'),
+    ('en-us', 'English'),
+    ('jp-ja', 'Japanese'),
+)
+
+TZ_DETECT_COUNTRIES = (
+    'DE',
+    'JP',
+    'US',
+)
 
 # static
 STATICFILES_FINDERS = (
@@ -144,10 +159,3 @@ LOGGING = {
 }
 
 # timezone
-TIME_ZONE = 'UTC'
-USE_TZ = True
-TZ_DETECT_COUNTRIES = (
-    'DE',
-    'JP',
-    'US',
-)

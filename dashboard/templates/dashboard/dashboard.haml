@@ -1,14 +1,31 @@
 - extends "dashboard/base.haml"
 - load i18n
+- load l10n
 
 - block content
   %h1.title
     - trans "Dashboard"
-  .tile.is-ancestor
+  %ul
     - for category in categories
-      .tile.box.is-child
+      %li
         %form{method: "POST", action: "{% url 'timestamp:timestamp_create' %}"}
           - csrf_token
           %input{type: "hidden", value: "#{category.pk}", name: "category"}
           %button
             = category.name
+  %table
+    %tr
+      %th
+        Value
+      %th
+        Category
+      %th
+        Comment
+    - for timestamp in recent
+      %tr
+        %td
+          = timestamp.value|unlocalize
+        %td
+          = timestamp.category
+        %td
+          = timestamp.comment
